@@ -1,5 +1,35 @@
 Rails.application.routes.draw do
-  resources :bobs
+  resources :users
+
+  resources :users do
+    resources :datetime, shallow: true
+  end
+
+#                Prefix Verb   URI Pattern                            Controller#Action
+#               users GET    /users(.:format)                       users#index
+#                     POST   /users(.:format)                       users#create
+#            new_user GET    /users/new(.:format)                   users#new
+#           edit_user GET    /users/:id/edit(.:format)              users#edit
+#                user GET    /users/:id(.:format)                   users#show
+#                     PATCH  /users/:id(.:format)                   users#update
+#                     PUT    /users/:id(.:format)                   users#update
+#                     DELETE /users/:id(.:format)                   users#destroy
+# user_datetime_index GET    /users/:user_id/datetime(.:format)     datetime#index
+#                     POST   /users/:user_id/datetime(.:format)     datetime#create
+#   new_user_datetime GET    /users/:user_id/datetime/new(.:format) datetime#new
+#       edit_datetime GET    /datetime/:id/edit(.:format)           datetime#edit
+#            datetime GET    /datetime/:id(.:format)                datetime#show
+#                     PATCH  /datetime/:id(.:format)                datetime#update
+#                     PUT    /datetime/:id(.:format)                datetime#update
+#                     DELETE /datetime/:id(.:format)                datetime#destroy
+#                     GET    /users(.:format)                       users#index
+#                     POST   /users(.:format)                       users#create
+#                     GET    /users/new(.:format)                   users#new
+#                     GET    /users/:id/edit(.:format)              users#edit
+#                     GET    /users/:id(.:format)                   users#show
+#                     PATCH  /users/:id(.:format)                   users#update
+#                     PUT    /users/:id(.:format)                   users#update
+#                     DELETE /users/:id(.:format)                   users#destroy
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
