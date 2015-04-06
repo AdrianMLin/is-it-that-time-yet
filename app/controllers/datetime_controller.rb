@@ -1,2 +1,3 @@
 class DatetimeController < ApplicationController
+  
 end
