@@ -1,5 +1,5 @@
 class AddUserIdToDatetimes < ActiveRecord::Migration
   def change
-    add_column :datetimes, :user_id, :integer
+    add_column :dates, :user_id, :integer
   end
 end
