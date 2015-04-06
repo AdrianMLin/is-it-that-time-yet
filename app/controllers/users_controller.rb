@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   def create
+
     new_user = User.create(
       username: params["username"],
       email: params["email"],
@@ -12,9 +13,9 @@ class UsersController < ApplicationController
 
   def index
     users = User.all
-    respond_to do |format|
-      format.json { render :json => users}
-    end
+    # respond_to do |format|
+    #   format.json { render :json => users}
+    # end
   end
 
   def new
@@ -24,9 +25,12 @@ class UsersController < ApplicationController
   def show
     user = User.find(params[:id])
 
-    respond_to do |format|
-      format.json { render :json => user}
-    end
+    # respond_to do |format|
+    #   format.json { render :json => user}
+    # end
+
+    render :show, {locals: {user: user}}
+
   end
 
 
