@@ -12,6 +12,31 @@
   <!-- this works! -->
   <input type="text" ng-model="test">
   {{ test }} 
-  
+
+  <!-- the event input section -->
+  <form action="/users/<%=user.id%>/events">
+  	<input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+  	<input type="text" name="name" placeholder="Event Name">
+  	<input type="text" name="notes" placeholder="Notes">
+  	<input type="datetime" name="datetime">
+  	<input type="hidden" name="user_id" value="<%= user.id %>">
+		<button>New Event</button>
+  </form>
+
+	
+	<!-- repeat -->
+  <section id="test">
+  	<% events.each do |event| %>
+  		<div>
+  			<!-- <img src="<%= event.image_url %>" alt=""> -->
+        <h1><%= event.name %></h1>
+        <h3><%= event.datetime %></h3>
+        <p><%= event.notes %></p>
+
+  		</div>
+  	<% end %>
+    
+  </section>
 
 </main>
+
